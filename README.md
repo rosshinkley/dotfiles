@@ -1,3 +1,3 @@
 #dotfiles
 
-dotfiles, hooray!
+this is where my dotfiles live.
