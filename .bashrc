@@ -230,3 +230,18 @@ export EDITOR=/usr/bin/vim.basic
 #source /etc/profile.d/rvm.sh
 
 export PATH=~/.node_modules/bin:$PATH
+
+if dpkg -l | grep xvfb > /dev/null
+then
+  if pgrep "Xvfb" > /dev/null
+  then
+    echo "xvfb is running."
+  else
+    echo "starting xvfb"
+    Xvfb -ac -screen scrn 1280x2000x24 :9.0 > /dev/null 2>&1 &
+    export DISPLAY=:9.0
+  fi
+else
+  echo "xvfb is not installed, skipping xvfb start"
+fi
+
