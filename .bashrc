@@ -245,3 +245,4 @@ else
   echo "xvfb is not installed, skipping xvfb start"
 fi
 
+export TERM=screen-256color
