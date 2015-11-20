@@ -21,3 +21,5 @@ term_.prefs_.set('color-palette-overrides', [
     base03, orange, base01, base00,
     base0, violet, base1, base3
 ]);
+
+term_.prefs_.set('cursor-color', 'rgba(20, 150, 20, 0.33)')
