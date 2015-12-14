@@ -35,7 +35,7 @@ nmap \Y :vertical resize 40<CR>:wincmd l<CR>
 nmap \y :exec "vertical resize " . (80 + (&number * &numberwidth))<CR>:wincmd l<CR>
 nmap \z :w<CR>:!open %<CR><CR>
 " nmap \j :w<CR>:!uglifyjs % -b --comments all -o %<CR><CR>:edit<CR>:echo expand('%:t')." jsprettified"<CR>
-nmap \j :w<CR>:!js-beautify --js -B -o % %<CR><CR>:edit<CR>:echo expand('%:t')." jsprettified"<CR>
+nmap \j :w<CR>:!js-beautify --indent-size 2 --js -B -o % %<CR><CR>:edit<CR>:echo expand('%:t')." jsprettified"<CR>
 " nmap \h :w<CR>:!js-beautify --html -o % %<CR><CR>:edit<CR>:echo expand('%:t')." htmlprettified"<CR>
 nmap \h :w<CR>:!node ~/.npm/prettydiff/1.12.17/package/api/node-local.js source:% output:% readmethod:file mode:beautify<CR><CR>:edit<CR>:echo expand('%:t')." htmlprettified"<CR>
  
