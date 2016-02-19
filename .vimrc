@@ -149,6 +149,9 @@ endfunction
 " force yaml to load as ansible {{{2
 au BufRead,BufNewFile *.yaml set filetype=ansible
 
+" force term to xterm{{{2
+" set term=xterm-256color
+
 " Make j & k linewise {{{2
 
 " turn off linewise keys -- normally, the `j' and `k' keys move the cursor down
@@ -534,6 +537,9 @@ nmap ; :CtrlPBuffer<CR>
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=0
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 " GitGutter
 let g:gitgutter_sign_added = '∙'
