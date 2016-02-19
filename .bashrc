@@ -113,8 +113,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-findInFiles() { find . -type f -name '*'  | perl -wnE'say if !(/\.git|node_module/i)'  | xargs grep -si "$@"; }
-findInFilesSensitive() { find . -type f -name '*'  | perl -wnE'say if !(/\.git|node_module/i)'  | xargs grep -s "$@"; }
+findInFiles() { find . -type f -name '*'  | perl -wnE'say if !(/\.git|node_module|typings|jspm/i)'  | xargs grep -si "$@"; }
+findInFilesSensitive() { find . -type f -name '*'  | perl -wnE'say if !(/\.git|node_module|typings|jspm/i)'  | xargs grep -s "$@"; }
 
 versionCheck(){ find . -type f -name 'package.json' | xargs grep -si "\"$@\":" | grep -v readme; }
 
