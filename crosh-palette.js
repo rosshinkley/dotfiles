@@ -1,4 +1,4 @@
-base03 = "#002b36";
+base03 = "#008EB3";
 base02 = "#073642";
 base01 = "#00F711";
 base00 = "#657b83";
@@ -22,4 +22,7 @@ term_.prefs_.set('color-palette-overrides', [
     base0, violet, base1, base3
 ]);
 
-term_.prefs_.set('cursor-color', 'rgba(20, 150, 20, 0.33)')
+term_.prefs_.set('cursor-color', 'rgba(20, 255, 20, 0.5)')
+
+// {{{ this is a collapsible
+// }}}
