@@ -37,7 +37,9 @@ nmap \z :w<CR>:!open %<CR><CR>
 nmap \j :w<CR>:!js-beautify --indent-size 2 --js -B -o % %<CR><CR>:edit<CR>:echo expand('%:t')." jsprettified"<CR>
 nmap \h :w<CR>:!node ~/.npm/prettydiff/1.12.17/package/api/node-local.js source:% output:% readmethod:file mode:beautify<CR><CR>:edit<CR>:echo expand('%:t')." htmlprettified"<CR>
 nmap \k :w<CR>:!tsfmt -r %<CR><CR>:edit<CR>:echo expand('%:t')." tsprettified"<CR>
- 
+
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+"nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 " You don't know what you're missing if you don't use this.
 nmap <C-e> :e#<CR>
