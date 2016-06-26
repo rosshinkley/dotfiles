@@ -166,6 +166,15 @@ mongodrop() {
   mongo --quiet --eval 'db.getMongo().getDBNames().forEach(function(i){db.getSiblingDB(i).dropDatabase()})'
 }
 
+dockerdrop() {
+  echo -e "Are you *sure* you want to destroy the docks? (y/n): \c"
+  read sure
+  test "$sure" != 'y' && (echo "So you're not sure then...";exit 1)
+  echo "beachhead ho.  destroying docker images and containers";
+  docker rm -f $(docker ps -a -q);
+  docker rmi -f $(docker images -q);
+}
+
 
 #add findinfiles
 alias fif='findInFiles'
@@ -251,6 +260,15 @@ alias tmux="tmux -2"
 alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm centurylink/dockerfile-from-image"
 
 alias tugboat="~/docker/docker-dev.sh"
+alias destroydocker='dockerdrop'
 
-# cd into home
-cd ~
+if [ ! -z "$TUGBOAT_ENVIRONMENT" ]; then
+  if [ -z "$TMUX" ]; then
+    tmux;
+  else
+    echo "tmux running, not starting";
+  fi
+  cd ~;
+else
+  echo "not a tugboat."
+fi
