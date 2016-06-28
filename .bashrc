@@ -259,7 +259,7 @@ alias tmux="tmux -2"
 
 alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm centurylink/dockerfile-from-image"
 
-alias tugboat="~/docker/docker-dev.sh"
+alias tugboat="~/src/docker/docker-dev.sh"
 alias destroydocker='dockerdrop'
 
 if [ ! -z "$TUGBOAT_ENVIRONMENT" ]; then
@@ -272,3 +272,5 @@ if [ ! -z "$TUGBOAT_ENVIRONMENT" ]; then
 else
   echo "not a tugboat."
 fi
+
+export ANDROID_HOME=/home/ross/Android/Sdk
