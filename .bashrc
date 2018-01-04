@@ -240,8 +240,9 @@ export EDITOR=/usr/bin/vim.basic
 
 #source rvm
 #source /etc/profile.d/rvm.sh
-if -e /home/$(whoami)/.rvm/scripts/rvm; then
-  source /home/$(whoami)/.rvm/scripts/rvm
+if [ -e ${HOME}/.rvm/scripts/rvm ]; then
+  echo "sourcing rvm"
+  source ${HOME}/.rvm/scripts/rvm
 else
   echo "rvm not installed, skipping."
 fi
@@ -281,7 +282,7 @@ else
   echo "not a tugboat."
 fi
 
-export ANDROID_HOME=/home/$(whoami)/Android/Sdk
+export ANDROID_HOME=${HOME}/Android/Sdk
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 PATH="$NPM_PACKAGES/bin:$PATH"
