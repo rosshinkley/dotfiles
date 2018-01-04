@@ -169,7 +169,10 @@ mongodrop() {
 dockerdrop() {
   echo -e "Are you *sure* you want to destroy the docks? (y/n): \c"
   read sure
-  test "$sure" != 'y' && (echo "So you're not sure then...";exit 1)
+  if [ "$sure" != 'y' ]; then
+    echo "So you're not sure then...";
+    return 1;
+  fi
   echo "beachhead ho.  destroying docker images and containers";
   docker rm -f $(docker ps -a -q);
   docker rmi -f $(docker images -q);
@@ -237,6 +240,11 @@ export EDITOR=/usr/bin/vim.basic
 
 #source rvm
 #source /etc/profile.d/rvm.sh
+if -e /home/$(whoami)/.rvm/scripts/rvm; then
+  source /home/$(whoami)/.rvm/scripts/rvm
+else
+  echo "rvm not installed, skipping."
+fi
 
 export PATH=~/.node_modules/bin:$PATH
 
@@ -273,4 +281,10 @@ else
   echo "not a tugboat."
 fi
 
-export ANDROID_HOME=/home/ross/Android/Sdk
+export ANDROID_HOME=/home/$(whoami)/Android/Sdk
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+PATH="$NPM_PACKAGES/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
