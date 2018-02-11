@@ -239,12 +239,17 @@ alias rsnew='bitbucket issues --owner rossersp --slug resume -a --all --status n
 export EDITOR=/usr/bin/vim.basic
 
 #source rvm
-#source /etc/profile.d/rvm.sh
 if [ -e ${HOME}/.rvm/scripts/rvm ]; then
   echo "sourcing rvm"
   source ${HOME}/.rvm/scripts/rvm
 else
-  echo "rvm not installed, skipping."
+  echo "rvm not installed in a home directory, checking profile.d..."
+  if [ -e /etc/profile.d/rvm.sh ]; then
+    echo "found rvm in profile.d, sourcing"
+    source /etc/profile.d/rvm.sh
+  else
+    echo "rvm not installed.  skipping.";
+  fi
 fi
 
 export PATH=~/.node_modules/bin:$PATH
