@@ -70,6 +70,7 @@ repos=(
   https://github.com/wavded/vim-stylus.git
   https://github.com/scrooloose/nerdcommenter.git
   https://github.com/chase/vim-ansible-yaml.git
+  https://github.com/Valloric/YouCompleteMe.git
   )
 
 # Here's a list of everything else to download in the format
